@@ -1,6 +1,6 @@
 {
     "name": "felixdorn/tag",
-    "description": "Create OPP tag with ease. Tag is extracted from feliwork",
+    "description": "Create OOP tag with ease. Tag is extracted from feliwork",
     "type": "library",
     "require-dev": {
         "phpunit/phpunit": "^8.3"
