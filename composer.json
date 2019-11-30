@@ -20,5 +20,5 @@
             "src/functions.php"
         ]
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "stable"
 }
