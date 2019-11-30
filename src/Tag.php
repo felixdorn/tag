@@ -64,6 +64,7 @@ namespace Felix\Tag;
  * @method Tag contenteditable() Add a contenteditable attribute to the tag
  * @method Tag integrity(string $value) Add a integrity attribute to the tag
  * @method Tag crossorigin(string $value) Add a crossorigin attribute to the tag
+ * @method Tag charset(string $value) Add a crossorigin attribute to the tag
  */
 class Tag
 {
