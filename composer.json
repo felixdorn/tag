@@ -20,5 +20,8 @@
             "src/functions.php"
         ]
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1"
+    }
 }
