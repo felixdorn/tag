@@ -236,4 +236,13 @@ class Tag
 
         return $this;
     }
+     /**
+     * @param Tag[] $tags
+     * @return Tag
+     */
+    public function withInside(array $tags) 
+    {
+        return $this->text($tags);
+    }
+   
 }
