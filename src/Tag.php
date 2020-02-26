@@ -20,7 +20,6 @@ namespace Felix\Tag;
 
 /**
  * @method Tag placeholder(string $text) Add a placeholder to the tag
- * @method Tag value(string $text) Add a value attribute to the tag
  * @method Tag required() Add required attribute to the tag
  * @method Tag download() Add download attribute to the tag
  * @method Tag type(string $value) Add a type attribute to the tag
@@ -236,13 +235,21 @@ class Tag
 
         return $this;
     }
+
      /**
-     * @param Tag[] $tags
+     * @param Tag[]|Tag|string  $tags
      * @return Tag
      */
-    public function withInside(array $tags) 
+    public function withInside($tags)
     {
         return $this->text($tags);
+    }
+
+    public function value(?string $value): self {
+
+        $this->value = $value ?? "";
+
+        return $this;
     }
    
 }
