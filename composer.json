@@ -1,6 +1,6 @@
 {
     "name": "felixdorn/tag",
-    "description": "Create OOP tag with ease. Tag is extracted from Buildix",
+    "description": "Generates HTML in a clean and convenient syntax.",
     "type": "library",
     "require-dev": {
         "phpunit/phpunit": "^8.3"
