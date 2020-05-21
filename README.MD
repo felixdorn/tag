@@ -3,7 +3,6 @@
 ![Packagist Version](https://img.shields.io/packagist/v/felixdorn/tag)
 [![Build Status](https://travis-ci.org/felixdorn/tag.svg?branch=master)](https://travis-ci.org/felixdorn/tag)
 [![codecov](https://img.shields.io/codecov/c/github/felixdorn/tag)](https://codecov.io/gh/felixdorn/tag)
-![Packagist](https://img.shields.io/packagist/dm/felixdorn/tag)
 
 ### Installation (with composer) 
 `composer require felixdorn/tag`
@@ -45,8 +44,8 @@ $tag
             tag('span')->text('Hello'),
             tag('b')->text('World'),
         ]),
-        tag('br')
-        tag('h3')>text('Watever')    
+        tag('br'),
+        tag('h3')>text('Whatever')    
     ]);
 ```
 #### Credits
