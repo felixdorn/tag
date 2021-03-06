@@ -1,54 +1,75 @@
 # Tag
 ![Packagist](https://img.shields.io/packagist/l/felixdorn/tag)
 ![Packagist Version](https://img.shields.io/packagist/v/felixdorn/tag)
-[![Build Status](https://travis-ci.org/felixdorn/tag.svg?branch=master)](https://travis-ci.org/felixdorn/tag)
-[![codecov](https://img.shields.io/codecov/c/github/felixdorn/tag)](https://codecov.io/gh/felixdorn/tag)
 
-### Installation (with composer) 
-`composer require felixdorn/tag`
+This package is fully compatible with Laravel 7 and 8.
 
-### Getting started
+## Getting started
+You can install the package via composer, if you don't have composer, you can download it [here](https://getcomposer.org/):
 
-#### Creating a tag
-##### OOP
-```php
-$tag = TagFactory::create('div');
+```bash
+composer require felixdorn/tag
 ```
-##### With a function
-```php
-$tag = tag('div');
-```
-
-#### Adding attributes
-Tag use magic method `__call` to add attributes. In theory, you can add any attribute you want.
-Only 50+ attributes are documented (in code) and could be auto-completed if your editor support `@method` tag in phpDoc.
-```php
-$tag
-    ->class('alert alert-danger')
-    ->text('Something went wrong');
+Or by adding a requirement in your composer.json:
+```json
+{
+    "require": {
+        "felixdorn/tag": "^2.0.0"
+    }
+}
 ```
 
-#### Nested tags
-Tag supports... nested tags. So you can do that :
+## Usage
 ```php
-$tag
+$tag = tag('div')
     ->class('container')
-    ->text(
-        tag('h1')->text('Some text')
+    ->children(
+        tag('h1')->children('Title'),
+        'Some raw content'
+    );
+```
+
+### Adding attributes
+We use the magic method `__call` to add attributes. You can add any attribute you want.
+
+```php
+tag('div')
+    ->class('alert alert-danger')
+    ->children('Something went wrong');
+```
+
+To add attributes containing a dash like `aria-hidden`, please use the equivalent in camel case (ariaHidden). We'll do the conversion back to kebab case when rendering the tag.
+
+You can also assign multiple attributes at once.
+```php
+tag('div')
+    ->attributes([
+    'id' => 'my-div',
+    'class' => 'mt-2'
+]);
+```
+
+### Nested tags
+```php
+tag('div')
+    ->class('container')
+    ->children(
+        tag('h1')->children('Some text')
     );
 
-// Tags on the same line
-$tag
-    ->text([
-        tag('h1')->text([
-            tag('span')->text('Hello'),
-            tag('b')->text('World'),
-        ]),
+tag('div')
+    ->children([
+        tag('h1')->children(
+            tag('span')->children('Hello'),
+            tag('b')->children('World'),
+        ),
         tag('br'),
-        tag('h3')>text('Whatever')    
+        tag('h3')->children('Whatever')    
     ]);
 ```
-#### Credits
+
+## Credits
 * [Félix Dorn](mailto:github@felixdorn.fr)
 
-#### License
+## License
+This project is MIT Licensed.

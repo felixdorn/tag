@@ -1,27 +1,47 @@
 {
-    "name": "felixdorn/tag",
-    "description": "Generates HTML in a clean and convenient syntax.",
-    "type": "library",
-    "require-dev": {
-        "phpunit/phpunit": "^8.3"
-    },
-    "license": "GPL-3.0",
-    "authors": [
-        {
-            "name": "felixdorn",
-            "email": "github@felixdorn.fr"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Felix\\Tag\\": "src/"
-        },
-        "files": [
-            "src/functions.php"
-        ]
-    },
-    "minimum-stability": "stable",
-    "require": {
-        "php": "^7.1"
+  "name": "felixdorn/tag",
+  "description": "Generates HTML in a clean and convenient syntax.",
+  "type": "library",
+  "require-dev": {
+    "pestphp/pest": "^1.0",
+    "friendsofphp/php-cs-fixer": "^2.16.4",
+    "phpstan/phpstan": "^0.12.48"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Félix Dorn",
+      "email": "github@felixdorn.fr"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Felix\\Tag\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist"
+  },
+  "scripts": {
+    "lint": "php-cs-fixer fix -v",
+    "test:lint": "php-cs-fixer fix -v --dry-run",
+    "test:types": "phpstan analyse --ansi --memory-limit=0",
+    "test:unit": "pest --colors=always",
+    "test": [
+      "@test:lint",
+      "@test:types",
+      "@test:unit"
+    ]
+  },
+  "require": {
+    "php": "^7.4",
+    "illuminate/contracts": "^7|^8",
+    "illuminate/macroable": "^7|^8"
+  }
 }
