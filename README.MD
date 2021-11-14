@@ -36,7 +36,7 @@ tag('div')
     ->children('Something went wrong');
 ```
 
-To add attributes containing a dash like `aria-hidden`, please use the equivalent in camel case (ariaHidden). We'll do the conversion back to kebab case when rendering the tag.
+To add attributes containing a dash like `aria-hidden`, use the equivalent in camel case (ariaHidden). We'll do the conversion back to kebab case when rendering the tag.
 
 You can also assign multiple attributes at once.
 ```php
