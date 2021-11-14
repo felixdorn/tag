@@ -2,8 +2,6 @@
 ![Packagist](https://img.shields.io/packagist/l/felixdorn/tag)
 ![Packagist Version](https://img.shields.io/packagist/v/felixdorn/tag)
 
-This package is fully compatible with Laravel 7 and 8.
-
 ## Getting started
 You can install the package via composer, if you don't have composer, you can download it [here](https://getcomposer.org/):
 
