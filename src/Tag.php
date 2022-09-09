@@ -112,9 +112,7 @@ class Tag implements Htmlable
         );
     }
 
-    /**
-     * @param array<string, string|null> $attributes
-     */
+    /** @param array<string, string|null> $attributes */
     protected function buildAttributes(array $attributes): string
     {
         return array_reduce($attributes, function ($_, $attribute) use ($attributes) {
@@ -132,10 +130,8 @@ class Tag implements Htmlable
         );
     }
 
-    /**
-     * @param Tag[]|string[] $children
-     */
-    protected function buildChildren($children): string
+    /** @param Tag[]|string[] $children */
+    protected function buildChildren(array $children): string
     {
         return array_reduce($children, function ($_, $child) {
             return $_ . array_reduce(
@@ -145,11 +141,6 @@ class Tag implements Htmlable
         }, '');
     }
 
-    /**
-     * @param mixed[] $arguments
-     *
-     * @return $this
-     */
     public function __call(string $name, array $arguments): self
     {
         $this->attribute($name, $arguments[0] ?? null);
@@ -164,11 +155,7 @@ class Tag implements Htmlable
         return $this;
     }
 
-    /**
-     * @param array<string, string|null> $attributes
-     *
-     * @return $this
-     */
+    /** @param array<string, string|null> $attributes */
     public function attributes(array $attributes = []): self
     {
         foreach ($attributes as $name => $value) {
@@ -178,10 +165,7 @@ class Tag implements Htmlable
         return $this;
     }
 
-    /**
-     * @param Tag|string ...$value
-     */
-    public function children(...$value): Tag
+    public function children(Tag|string|array ...$value): Tag
     {
         $this->children = $value;
 
