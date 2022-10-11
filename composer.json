@@ -41,7 +41,5 @@
   },
   "require": {
     "php": "^8.1",
-    "illuminate/contracts": "^9",
-    "illuminate/macroable": "^9"
   }
 }

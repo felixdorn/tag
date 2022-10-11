@@ -2,9 +2,6 @@
 
 namespace Felix\Tag;
 
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Support\Traits\Macroable;
-
 /**
  * @method Tag placeholder(string $text)  Add a placeholder to the tag
  * @method Tag required()                 Add required attribute to the tag
@@ -52,10 +49,8 @@ use Illuminate\Support\Traits\Macroable;
  * @method Tag crossorigin(string $value) Add a crossorigin attribute to the tag
  * @method Tag charset(string $value)     Add a charset attribute to the tag
  */
-class Tag implements Htmlable
+class Tag
 {
-    use Macroable;
-
     public const SELF_CLOSING_TAGS = [
         'area',
         'base',
