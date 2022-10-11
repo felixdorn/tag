@@ -48,5 +48,11 @@ test('attribute names are converted to pascal case', function () {
     expect($tag->toHtml())->toLookLike('<div aria-hidden="true"></div>');
 });
 
+test('it can have a text node as a children', function () {
+    $tag = tag('div')->children('text');
+
+    expect($tag->toHtml())->toLookLike('<div>text</div>');
+});
+
 test('tag() function returns a tag')
     ->assertInstanceOf(Tag::class, tag('whatever'));

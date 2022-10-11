@@ -75,7 +75,7 @@ class Tag
 
     /** @var array<string, string|null> */
     protected array $attributes = [];
-    /** @var Tag[]|string[] */
+    /** @var array<Tag|string|array<Tag|string>> */
     protected array $children = [];
 
     public function __construct(string $tag)
@@ -120,22 +120,23 @@ class Tag
     protected function pascalCase(string $name): string
     {
         return strtolower(
-        // If there's an error we still return the original attribute
+            // If there's an error we still return the original attribute
             preg_replace('/([a-z0-9]|(?=[A-Z]))([A-Z])/', '$1-$2', $name) ?: $name
         );
     }
 
-    /** @param Tag[]|string[] $children */
+    /** @param array<Tag|string|array<Tag|string>> $children */
     protected function buildChildren(array $children): string
     {
         return array_reduce($children, function ($_, $child) {
             return $_ . array_reduce(
                 // We make sure it's an array because $child may contain itself and be without siblings
-                    !is_array($child) ? [$child] : $child,
-                    fn ($_, $sibling) => $_ . ($sibling instanceof self ? $sibling->toHtml() : $sibling), '');
+                !is_array($child) ? [$child] : $child,
+                fn ($_, $sibling) => $_ . ($sibling instanceof self ? $sibling->toHtml() : $sibling), '');
         }, '');
     }
 
+    /** @param array{0: string|null} $arguments */
     public function __call(string $name, array $arguments): self
     {
         $this->attribute($name, $arguments[0] ?? null);
@@ -160,6 +161,7 @@ class Tag
         return $this;
     }
 
+    /** @param Tag|string|array<Tag|string> $value */
     public function children(Tag|string|array ...$value): Tag
     {
         $this->children = $value;

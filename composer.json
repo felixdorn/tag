@@ -4,7 +4,7 @@
   "type": "library",
   "require-dev": {
     "pestphp/pest": "^v1.22",
-    "friendsofphp/php-cs-fixer": "^v2.19.3",
+    "friendsofphp/php-cs-fixer": "^v3",
     "phpstan/phpstan": "^1.8.5"
   },
   "license": "MIT",
@@ -31,8 +31,8 @@
   "scripts": {
     "lint": "php-cs-fixer fix -v",
     "test:lint": "php-cs-fixer fix -v --dry-run",
-    "test:types": "phpstan analyse --ansi --memory-limit=0",
-    "test:unit": "pest --colors=always",
+    "test:types": "phpstan analyse  --memory-limit=-1",
+    "test:unit": "pest",
     "test": [
       "@test:lint",
       "@test:types",
@@ -40,6 +40,6 @@
     ]
   },
   "require": {
-    "php": "^8.1",
+    "php": "^8.1"
   }
 }
